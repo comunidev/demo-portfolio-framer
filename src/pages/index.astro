@@ -1,4 +1,13 @@
 ---
+const projectGrid = [
+  { title: "Emojis", image: "/projects-grid/1.png" },
+  { title: "Art", image: "/projects-grid/2.jpg" },
+  { title: "Framer", image: "/projects-grid/3.jpg" },
+  { title: "Mavis Font", image: "/projects-grid/4.png" },
+  { title: "Photography", image: "/projects-grid/5.jpg" },
+  { title: "Clay Devices", image: "/projects-grid/6.jpg" },
+];
+
 const links = [
   {
     title: "The NFT Space",
@@ -54,7 +63,13 @@ const social = [
         <h1 class="me">Jenny</h1>
         <span class="whoami">I’m a freelance designer from Amsterdam.</span>
       </header>
-      <section class="project-grid"></section>
+      <section class="project-grid">
+        {
+          projectGrid.map((project) => (
+            <img src={project.image} alt={project.title} />
+          ))
+        }
+      </section>
       <section class="about">
         <h2>About</h2>
         <p>
