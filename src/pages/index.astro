@@ -59,18 +59,18 @@ const social = [
   </head>
   <body>
     <main>
-      <header>
+      <header class="stack">
         <h1 class="me">Jenny</h1>
         <span class="whoami">I’m a freelance designer from Amsterdam.</span>
       </header>
-      <section class="project-grid">
+      <section class="stack project-grid">
         {
           projectGrid.map((project) => (
             <img src={project.image} alt={project.title} />
           ))
         }
       </section>
-      <section class="about">
+      <section class="stack about">
         <h2>About</h2>
         <p>
           I’m a digital product designer working at Framer in the lovely
@@ -79,7 +79,7 @@ const social = [
           several interactive components as Framer packages.
         </p>
       </section>
-      <section class="links">
+      <section class="stack links">
         <h2>Writing</h2>
         <div class="link-list">
           {
@@ -92,13 +92,13 @@ const social = [
           }
         </div>
       </section>
-      <section class="connect">
+      <section class="stack connect">
         <h2>Connect</h2>
         <div>
           {social.map((s) => <a href={s.url}>{s.title}</a>)}
         </div>
       </section>
-      <footer>
+      <footer class="stack">
         <span>Jenny 2021</span>
         <span>Amsterdam5</span>
       </footer>
@@ -126,6 +126,19 @@ const social = [
 
   header {
     margin-bottom: 30px;
+  }
+
+  main .stack {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  main .stack:first-child {
+    margin-top: 0;
+  }
+
+  main .stack:last-child {
+    margin-bottom: 0;
   }
 
   .me {
