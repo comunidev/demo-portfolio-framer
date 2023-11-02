@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../components/ArrowIcon.astro";
 const projectGrid = [
   { title: "Emojis", image: "/projects-grid/1.png" },
   { title: "Art", image: "/projects-grid/2.jpg" },
@@ -84,7 +85,7 @@ const social = [
         <div class="link-list">
           {
             links.map((link) => (
-              <a href={link.url}>
+              <a class="link" href={link.url}>
                 <span class="link-title">{link.title}</span>
                 <span class="link-text">{link.text}</span>
               </a>
@@ -94,8 +95,15 @@ const social = [
       </section>
       <section class="stack connect">
         <h2>Connect</h2>
-        <div>
-          {social.map((s) => <a href={s.url}>{s.title}</a>)}
+        <div class="link-list">
+          {
+            social.map((s) => (
+              <a class="link" href={s.url}>
+                {s.title}
+                <ArrowIcon size="14" />
+              </a>
+            ))
+          }
         </div>
       </section>
       <footer class="stack">
@@ -110,6 +118,11 @@ const social = [
     --font-color: #000000;
     --font-size: normal;
     --font-family: "Inter", sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--font-color);
   }
 
   body {
@@ -143,9 +156,10 @@ const social = [
 
   .me {
     opacity: 0.3;
+    margin-top: 0;
     margin-bottom: 7.5px;
-    font-size: var(--font-size);
     text-align: center;
+    font-size: 24px;
   }
 
   .whoami {
@@ -170,5 +184,58 @@ const social = [
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 10px;
+    opacity: 0.3;
+  }
+
+  .about p {
+    line-height: 1.5;
+    font-size: 14px;
+  }
+
+  .links .link-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 10px;
+  }
+
+  .links .link-list .link {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link-title {
+    color: black;
+    text-decoration: underline;
+    font-size: 14px;
+    line-height: 25px;
+  }
+
+  .link-text {
+    color: var(--font-color);
+    opacity: 0.5;
+    font-size: 14px;
+  }
+
+  .connect .link {
+    font-size: 14px;
+  }
+
+  .connect .link-list {
+    display: flex;
+    gap: 10px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.3;
+    font-size: 12px;
   }
 </style>
